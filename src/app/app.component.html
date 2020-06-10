@@ -1,0 +1,13 @@
+<div class="mainBody">
+  <mat-toolbar color="primary">
+    Gissa årets sommarvärdar 2020
+  </mat-toolbar>
+  <nav mat-tab-nav-bar color="primary" mat-align-tabs="center">
+    <a mat-tab-link routerLink="vote">Rösta</a>
+    <a mat-tab-link routerLink="highscore">Highscore</a>
+  </nav>
+
+  <div class="routerOutlet">
+    <router-outlet></router-outlet>
+  </div>
+</div>

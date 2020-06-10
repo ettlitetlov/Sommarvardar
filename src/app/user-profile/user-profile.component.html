@@ -1,0 +1,24 @@
+<div *ngIf="auth.user$ | async; then authenticated else guest">
+    <!-- template will replace this div -->
+</div>
+
+<!-- User NOT logged in -->
+<ng-template #guest>
+<h3>Vill du rösta behöver du först logga in</h3>
+
+<button mat-stroked-button class="alternate-theme" color="primary" (click)="auth.googleSignin()">
+    <i class="fa fa-google"></i> Logga in med Google
+</button>
+
+</ng-template>
+
+
+<!-- User logged in -->
+<ng-template #authenticated>
+<div *ngIf="auth.user$ | async as user">
+    <h3>Hej {{ user.displayName }}</h3>
+    <img  [src]="user.photoURL">
+    <p>UID: {{ user.uid }}</p>
+    <button mat-stroked-button color="warn" (click)="auth.signOut()">Logga ut</button>
+</div>
+</ng-template>
